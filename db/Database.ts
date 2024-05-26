@@ -19,13 +19,12 @@ export default class Database {
   connect(): string | Sequelize {
     try {
       this.sequelize.authenticate();
-      this.sequelize.close();
       return "connected on db";
     } catch (e) {
       return "Erro em connectar ao db, e: " + e;
     }
   }
-  useBd(): Sequelize {
+  useBd():any{
     return this.sequelize;
   }
 }
