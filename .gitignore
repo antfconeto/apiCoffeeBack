@@ -1,0 +1,7 @@
+#.gitignore
+.env.development
+.env.test
+.env.production
+/node_modules
+.vscode
+test

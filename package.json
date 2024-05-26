@@ -1,0 +1,33 @@
+{
+  "name": "apicoffee",
+  "version": "1.0.0",
+  "description": "Api server back-end",
+  "main": "index.ts",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test jest --passWithNoTests --detectOpenHandles",
+    "dev": "cross-env NODE_ENV=development nodemon index.ts"
+  },
+  "author": "Antonio Francisco de Araújo Neto",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.7",
+    "nodemon": "^3.1.0",
+    "sequelize": "^6.37.3",
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/supertest": "^6.0.2",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.3"
+  }
+}
