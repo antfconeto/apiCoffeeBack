@@ -1,7 +1,8 @@
 {
     "version": 2,
     "builds": [
-      { "src": "dist/**", "use": "@vercel/node" }
+      { "src": "dist/**", "use": "@vercel/node" },
+      { "src": "./index.js", "use": "@vercel/node" }
     ],
     "outputDirectory": "dist"
   }
