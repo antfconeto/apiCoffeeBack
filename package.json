@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --passWithNoTests --detectOpenHandles",
     "dev": "cross-env NODE_ENV=development nodemon index.ts",
-    "build": "tsc --verbose"
+    "build": "tsc"
   },
   "author": "Antonio Francisco de Araújo Neto",
   "license": "ISC",
