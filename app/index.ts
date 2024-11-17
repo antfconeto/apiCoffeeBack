@@ -1,4 +1,4 @@
-import {RouterManager,IRouterManager } from './app/routers/router-manager'
+import {RouterManager,IRouterManager } from './routers/router-manager'
 import Express from 'express'
 import * as dotenv from 'dotenv'
 import bodyParser from 'body-parser';

@@ -2,10 +2,10 @@
   "name": "apicoffee",
   "version": "1.0.0",
   "description": "Api server back-end",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --passWithNoTests --detectOpenHandles",
-    "dev": "cross-env NODE_ENV=development nodemon index.ts",
+    "start": "node dist/app/index.js",
     "build": "tsc"
   },
   "author": "Antonio Francisco de Araújo Neto",
