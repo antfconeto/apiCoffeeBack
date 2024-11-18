@@ -1,0 +1,12 @@
+type Coffee {
+    name: String
+    description: String
+    price: Float
+    id: String
+    createdAt: String
+    updatedAt: String
+}
+
+type Query {
+    getCoffeeById: String
+}
