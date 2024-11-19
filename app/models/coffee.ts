@@ -30,4 +30,9 @@ export class CoffeeModel{
             price:this.price
         }
     }
+    static fromInput(data:Coffee):CoffeeModel{
+        console.log(`🔁 Parsing coffee input to Coffee Model`);
+        const {createdAt,description,id,name,price,updatedAt} = data
+        return new CoffeeModel(id,name,description,price,createdAt,updatedAt)
+    }
 }

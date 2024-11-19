@@ -7,6 +7,21 @@ type Coffee {
     updatedAt: String
 }
 
+input CoffeeInput {
+    name: String
+    description: String
+    price: Float
+    id: String
+    createdAt: String
+    updatedAt: String
+}
+
 type Query {
-    getCoffeeById: String
+    getCoffeeById(coffeeId:String!): Coffee
+    listAllCoffees:[Coffee]
+}
+type Mutation {
+    createCoffee(coffee:CoffeeInput!):Coffee
+    updateCoffee(coffee:CoffeeInput!):Coffee
+    deleteCoffee(coffeeId:String!):Boolean
 }

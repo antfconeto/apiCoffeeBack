@@ -34,15 +34,20 @@ export class GraphqlSetup {
   }
 
   setupResolvers(): any {
-    const resolversName = ["getCoffeeById"];
-
-    const queries = resolversName.reduce((acc: any, name: any) => {
+    const resolversQueriesName = ["getCoffeeById", "listAllCoffees"];
+    const resolversMutationsName = ["createCoffee", "updateCoffee", "deleteCoffee"];
+    const queries = resolversQueriesName.reduce((acc: any, name: any) => {
+      acc[name] = handlerEvent;
+      return acc;
+    }, {});
+    const mutations = resolversMutationsName.reduce((acc: any, name: any) => {
       acc[name] = handlerEvent;
       return acc;
     }, {});
 
     const resolvers = {
       Query: queries,
+      Mutation:mutations
     };
     return resolvers;
   }
