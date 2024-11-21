@@ -4,4 +4,5 @@ export interface Coffee{
     description:string,
     createdAt:string,
     updatedAt:string,
+    price:number
 }
