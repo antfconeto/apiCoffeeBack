@@ -6,3 +6,11 @@ export interface Coffee{
     updatedAt:string,
     price:number
 }
+export interface CoffeeImage{
+    id:string,
+    coffeeId:string,
+    url:string,
+    width:number,
+    heigth:number,
+    altText:string
+}
