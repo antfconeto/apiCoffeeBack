@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --passWithNoTests --detectOpenHandles",
     "start": "node dist/app/index.js",
-    "build": "tsc && copyfiles -u 1 src/**/*.graphql dist/"
+    "build": "tsc"
   },
   "author": "Antonio Francisco de Araújo Neto",
   "license": "ISC",
