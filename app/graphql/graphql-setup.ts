@@ -16,12 +16,10 @@ export class GraphqlSetup {
 
     const typeDefs = loadFilesSync(path.resolve(__dirname, "./schema.graphql"));
     const resolvers = this.setupResolvers();
-
     const schema = makeExecutableSchema({
       typeDefs,
       resolvers,
     });
-
     this.app.use(
       "/graphql",
       graphqlHTTP({
@@ -34,8 +32,8 @@ export class GraphqlSetup {
   }
 
   setupResolvers(): any {
-    const resolversQueriesName = ["getCoffeeById", "listAllCoffees"];
-    const resolversMutationsName = ["createCoffee", "updateCoffee", "deleteCoffee"];
+    const resolversQueriesName = ["getCoffeeById", "listAllCoffees","listAllImagesFromCoffee","getCoffeeImageById"];
+    const resolversMutationsName = ["createCoffee", "updateCoffee", "deleteCoffee","createCoffeeImage","deleteCoffeeImage"];
     const queries = resolversQueriesName.reduce((acc: any, name: any) => {
       acc[name] = handlerEvent;
       return acc;

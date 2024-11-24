@@ -9,6 +9,7 @@ type Coffee {
 type CoffeeImage{
     coffeeId:String,
     url:String,
+    id:String,
     width:Int,
     height:Int,
     altText:String,
@@ -16,6 +17,7 @@ type CoffeeImage{
 input CoffeeImageInput{
     coffeeId:String,
     url:String,
+    id:String,
     width:Int,
     height:Int,
     altText:String,
@@ -33,10 +35,12 @@ type Query {
     getCoffeeById(coffeeId:String!): Coffee
     listAllCoffees:[Coffee]
     listAllImagesFromCoffee(coffeeId:String):[CoffeeImage]
+    getCoffeeImageById(coffeeImageId:String):CoffeeImage
 }
 type Mutation {
     createCoffee(coffee:CoffeeInput!):Coffee
     updateCoffee(coffee:CoffeeInput!):Coffee
     deleteCoffee(coffeeId:String!):Boolean
-    createCoffeeImage(coffeeImage:CoffeeImageInput!):CoffeeImage
+    createCoffeeImage(coffeeImage:[CoffeeImageInput!]):[CoffeeImage]
+    deleteCoffeeImage(coffeeImageId:String!):Boolean
 }

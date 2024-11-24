@@ -3,6 +3,7 @@ export interface Coffee{
     name:string,
     description:string,
     createdAt:string,
+    entity:string,
     updatedAt:string,
     price:number
 }
@@ -11,6 +12,7 @@ export interface CoffeeImage{
     coffeeId:string,
     url:string,
     width:number,
-    heigth:number,
+    height:number,
     altText:string
+    entity:string
 }
