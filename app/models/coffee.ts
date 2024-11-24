@@ -8,6 +8,7 @@ export class CoffeeModel{
     id:string;
     createdAt:string;
     updatedAt:string;
+    entity:string;
     constructor(id?:string,name?:string,description?:string,price?:number,createdAt?:string,updatedAt?:string){
         this.id = id || `COFFEE${randomUUID()}`
         this.name = name || ''
@@ -15,6 +16,7 @@ export class CoffeeModel{
         this.price = price || 0
         this.createdAt = createdAt || this.dateNow
         this.updatedAt = updatedAt || this.dateNow
+        this.entity = 'COFFEE'
     }
 
     get dateNow():string{
@@ -27,7 +29,8 @@ export class CoffeeModel{
             createdAt:this.createdAt,
             description:this.description,
             updatedAt:this.updatedAt,
-            price:this.price
+            price:this.price,
+            entity:this.entity
         }
     }
     static fromInput(data:Coffee):CoffeeModel{

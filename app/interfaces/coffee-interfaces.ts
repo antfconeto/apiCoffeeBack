@@ -3,6 +3,7 @@ export interface Coffee{
     name:string,
     description:string,
     createdAt:string,
+    entity:string,
     updatedAt:string,
     price:number
 }

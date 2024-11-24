@@ -25,7 +25,7 @@ const port = process.env.PORT! || 5000;
 app.get("/", async (req, res) => {
   try {
     const response = await axios.post(
-      "https://api-coffee-back-92pr5yyzt-antfconetos-projects.vercel.app/graphql",
+      "http://localhost:5000/graphql",
       {
         query: `
         query {
