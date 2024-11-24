@@ -24,28 +24,28 @@ const port = process.env.PORT! || 5000;
 
 app.get("/", async (req, res) => {
   try {
-    const response = await axios.post(
-      "http://api-coffee-back-lyyv715to-antfconetos-projects.vercel.app/graphql",
-      {
-        query: `
-        query {
-          listAllCoffees {
-    id
-    name
-    description
-    price
-    createdAt
-    updatedAt
+        const response = await axios.post(
+          "https://api-coffee-back.vercel.app/graphql",
+          {
+            query: `
+            query {
+              listAllCoffees {
+        id
+        name
+        description
+        price
+        createdAt
+        updatedAt
+              }
+            }
+          `,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
-        }
-      `,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+        );
 
     res.json(response.data);
   } catch (error: any) {
