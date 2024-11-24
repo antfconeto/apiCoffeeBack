@@ -25,7 +25,7 @@ const port = process.env.PORT! || 5000;
 app.get("/", async (req, res) => {
   try {
     const response = await axios.post(
-      "https://api-coffee-back.vercel.app/graphql",
+      "https://api-coffee-back-92pr5yyzt-antfconetos-projects.vercel.app/graphql",
       {
         query: `
         query {
@@ -48,8 +48,8 @@ app.get("/", async (req, res) => {
     );
 
     res.json(response.data);
-  } catch (error) {
-    res.status(500).json({ error: "❌ Failed to fetch data" });
+  } catch (error:any) {
+    res.status(500).json({ error: `❌ Failed to fetch data, error: ${error.message}` });
   }
 });
 app.listen(port, () => {

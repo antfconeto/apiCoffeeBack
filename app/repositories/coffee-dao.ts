@@ -90,7 +90,7 @@ export class CoffeeDao implements ICoffeerDao{
         console.log(`🔁 Quering all coffees in firestores...`)
         let coffees:CoffeeModel[] = []
         try {
-            const response = await this.database.collection('coffee').get()
+            const response = await this.database.collection('coffee').where("entity", '==', 'COFFEE').get()
             response.forEach((item)=>{
                 let coffeeModel = CoffeeModel.fromInput(item.data() as unknown as Coffee)
                 coffees.push(coffeeModel)

@@ -11,6 +11,7 @@ export interface CoffeeImage{
     coffeeId:string,
     url:string,
     width:number,
-    heigth:number,
+    height:number,
     altText:string
+    entity:string
 }

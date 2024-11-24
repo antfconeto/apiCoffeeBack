@@ -9,7 +9,7 @@ export class CoffeeModel{
     createdAt:string;
     updatedAt:string;
     constructor(id?:string,name?:string,description?:string,price?:number,createdAt?:string,updatedAt?:string){
-        this.id = id || randomUUID()
+        this.id = id || `COFFEE${randomUUID()}`
         this.name = name || ''
         this.description = description || ''
         this.price = price || 0
