@@ -28,7 +28,7 @@ export class GraphqlSetup {
       })
     );
 
-    console.log(`🚀 GraphQL endpoint is ready at /graphql`);
+    console.log(`🚀 GraphQL api is ready at /graphql`);
   }
 
   setupResolvers(): any {
