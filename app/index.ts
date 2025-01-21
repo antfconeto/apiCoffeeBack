@@ -3,14 +3,11 @@ import Express from "express";
 import * as dotenv from "dotenv";
 import bodyParser from "body-parser";
 import { GraphqlSetup } from "./graphql/graphql-setup";
-import {
-  FirebaseConfigFactory,
-  FirebaseService,
-} from "./.firebase/firebase-setup";
-import axios from "axios";
+import { CustomConsoler } from "./utils/custom-consoler";
 const app = Express();
 dotenv.config();
-
+//------------ Config logger ----------------
+const consoler = new CustomConsoler()
 //------------ Setup Routers ----------------
 const routerManager: IRouterManager = new RouterManager(app);
 routerManager.setupRouters();
@@ -23,37 +20,10 @@ graphqlSetup.setupGraphql();
 const port = process.env.PORT! || 5000;
 
 app.get("/", async (req, res) => {
-  try {
-    const response = await axios.post(
-      "https://api-coffee-back.vercel.app/graphql",
-      {
-        query: `
-        query {
-          listAllCoffees {
-    id
-    name
-    description
-    price
-    createdAt
-    updatedAt
-          }
-        }
-      `,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    res.json(response.data);
-  } catch (error) {
-    res.status(500).json({ error: "❌ Failed to fetch data" });
-  }
+  res.send(200)
 });
 app.listen(port, () => {
-  console.log("✅ Server started");
+  consoler.success("✅ Server started");
 });
 
 module.exports = app;

@@ -1,6 +1,7 @@
 import { randomUUID } from "crypto";
 import { Coffee } from "../interfaces/coffee-interfaces";
-
+import { CustomConsoler } from "../utils/custom-consoler";
+let consoler = new CustomConsoler()
 export class CoffeeModel{
     name:string;
     description:string;
@@ -31,7 +32,7 @@ export class CoffeeModel{
         }
     }
     static fromInput(data:Coffee):CoffeeModel{
-        console.log(`🔁 Parsing coffee input to Coffee Model`);
+        consoler.process(`🔁 Parsing coffee input to Coffee Model`);
         const {createdAt,description,id,name,price,updatedAt} = data
         return new CoffeeModel(id,name,description,price,createdAt,updatedAt)
     }

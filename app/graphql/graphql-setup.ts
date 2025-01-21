@@ -4,15 +4,17 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { graphqlHTTP } from "express-graphql";
 import path from "path";
 import { handlerEvent } from "../base";
+import { CustomConsoler } from "../utils/custom-consoler";
 export class GraphqlSetup {
   private app: Express;
-
+  private consoler: CustomConsoler;
   constructor(app: Express) {
     this.app = app;
+    this.consoler = new CustomConsoler()
   }
 
   setupGraphql() {
-    console.log(`💖 Setting up GraphQL endpoints`);
+    this.consoler.process(`💖 Setting up GraphQL endpoints`);
 
     const typeDefs = loadFilesSync(path.resolve(__dirname, "./schema.graphql"));
     const resolvers = this.setupResolvers();
@@ -30,12 +32,16 @@ export class GraphqlSetup {
       })
     );
 
-    console.log(`🚀 GraphQL endpoint is ready at /graphql`);
+    this.consoler.success(`🚀 GraphQL endpoint is ready at /graphql`);
   }
 
   setupResolvers(): any {
     const resolversQueriesName = ["getCoffeeById", "listAllCoffees"];
-    const resolversMutationsName = ["createCoffee", "updateCoffee", "deleteCoffee"];
+    const resolversMutationsName = [
+      "createCoffee",
+      "updateCoffee",
+      "deleteCoffee",
+    ];
     const queries = resolversQueriesName.reduce((acc: any, name: any) => {
       acc[name] = handlerEvent;
       return acc;
@@ -47,7 +53,7 @@ export class GraphqlSetup {
 
     const resolvers = {
       Query: queries,
-      Mutation:mutations
+      Mutation: mutations,
     };
     return resolvers;
   }

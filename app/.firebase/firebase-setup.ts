@@ -46,7 +46,15 @@ class FirebaseService implements IFirebaseService {
     private database: FirebaseFirestore.Firestore;
 
     constructor(config: IFirebaseConfig) {
-        this.config = config;
+        this.config = {
+            apiKey: "AIzaSyDJKobrWNqv8XX7XktNu4ps680rdYIeYO8",
+            authDomain: "apicoffee-aefd5.firebaseapp.com",
+            projectId: "apicoffee-aefd5",
+            storageBucket: "apicoffee-aefd5.firebasestorage.app",
+            messagingSenderId: "946013005455",
+            appId: "1:946013005455:web:812311e02eeed70db2f2fa",
+            measurementId: "G-H51YDMCJBJ"
+          };
         this.initialize();
     }
 
@@ -58,6 +66,7 @@ class FirebaseService implements IFirebaseService {
         }
         this.database = admin.firestore();
     }
+
 
     public getDatabase(): FirebaseFirestore.Firestore {
         return this.database;
